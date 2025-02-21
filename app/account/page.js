@@ -1,7 +1,10 @@
-export default function Page() {
+import { auth } from "../_lib/auth";
+
+export default async function Page() {
+  const session = await auth();
   return (
     <h2 className="font-semibold text-2xl text-accent-400 mb-7">
-      Welcome, Sourav
+      Welcome, {session?.user?.name}
     </h2>
   );
 }
